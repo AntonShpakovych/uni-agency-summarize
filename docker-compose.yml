@@ -1,0 +1,23 @@
+version: "3"
+services:
+    app:
+        build:
+            context: .
+        ports:
+            - "80:80"
+        volumes:
+            - ./:/app
+        command: >
+          sh -c "wait-for-it redis:6379 && uvicorn main:app --host 0.0.0.0 --port 80 --reload"
+        env_file:
+            - .env
+        depends_on:
+            - redis
+        restart: always
+
+    redis:
+        image: redis
+        container_name: redis_service
+        ports:
+            - "6379:6379"
+        restart: always
