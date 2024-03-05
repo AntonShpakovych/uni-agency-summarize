@@ -41,8 +41,8 @@ app.add_middleware(GlobalsMiddleware)
     dependencies=[
         Depends(
             RateLimiter(
-                times=1,
-                seconds=30
+                times=docs_summarize.RATE_LIMITER_TIMES,
+                seconds=docs_summarize.RATE_LIMITER_SECONDS
             )
         )
     ]
