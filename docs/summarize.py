@@ -14,5 +14,7 @@ OUTPUT_EXAMPLE = (
     "the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world."
 )
 DESCRIPTION = "Provide summary for your text [ONLY ENGLISH]."
+MIN_LENGTH_SCHEMA_INPUT_TEXT = 150
 RATE_LIMITER_TIMES = 1
 RATE_LIMITER_SECONDS = 30
+

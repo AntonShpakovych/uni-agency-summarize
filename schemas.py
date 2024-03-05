@@ -4,7 +4,10 @@ from docs import summarize
 
 
 class InputText(BaseModel):
-    text: str = Field(min_length=150, example=summarize.INPUT_EXAMPLE)
+    text: str = Field(
+        min_length=summarize.MIN_LENGTH_SCHEMA_INPUT_TEXT,
+        example=summarize.INPUT_EXAMPLE
+    )
 
 
 class OutputText(BaseModel):
