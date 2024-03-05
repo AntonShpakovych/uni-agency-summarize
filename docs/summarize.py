@@ -13,4 +13,4 @@ OUTPUT_EXAMPLE = (
     "Its base is square, measuring 125 metres (410 ft) on each side. During its construction, "
     "the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world."
 )
-TITLE = "Provide summary for your text"
+DESCRIPTION = "Provide summary for your text"
