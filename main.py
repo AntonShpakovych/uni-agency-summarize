@@ -1,4 +1,5 @@
 from contextlib import asynccontextmanager
+from typing import Annotated
 
 import redis.asyncio as redis
 from transformers import BartForConditionalGeneration, BartTokenizer
@@ -7,9 +8,11 @@ from fastapi import FastAPI, Depends
 from fastapi_limiter import FastAPILimiter
 from fastapi_limiter.depends import RateLimiter
 
+
 from fastapi_globals import GlobalsMiddleware, g
 from settings import Settings
-from schemas import OutputText, InputText
+from schemas import OutputText
+from dependencies import get_english_text
 from utils.generate_summarize import generate_summarize
 from docs import summarize as docs_summarize
 
@@ -47,9 +50,9 @@ app.add_middleware(GlobalsMiddleware)
         )
     ]
 )
-def summarize(input_text: InputText):
+def summarize(text: Annotated[str, Depends(get_english_text)]):
     summary = generate_summarize(
-        text=input_text.text,
+        text=text,
         max_length=g.settings.max_length,
         min_length=g.settings.min_length,
         tokenizer=g.tokenizer,
