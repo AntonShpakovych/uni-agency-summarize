@@ -1,5 +1,5 @@
 # Uni Agency Summarize API 
-The API that can analyze the text you provide to it works in English
+The API that can analyze the text you provide to it
 
 # Technologies
 - FastAPI
